@@ -1,0 +1,13 @@
+@import "../constant.css";
+
+.footer {
+    height: 10rem;
+    background-color: var(--background-grey);
+    display: grid;
+    grid-template-columns: 1fr 970px 1fr;
+    color: var(--color-white);
+}
+
+.footerContainer {
+    grid-column: 2;
+}

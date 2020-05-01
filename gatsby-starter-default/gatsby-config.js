@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Seba`,
+    description: `Sebastien Antzorn est un illustrateur belge, il fait de la peinture figurative, abstraite et sur mesure`,
+    author: `Vincent Racelle`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
