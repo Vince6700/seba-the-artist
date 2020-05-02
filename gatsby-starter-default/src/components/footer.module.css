@@ -4,11 +4,23 @@
     height: 20rem;
     background-color: var(--background-grey);
     display: grid;
-    grid-template-columns: 1fr 970px 1fr;
+    grid-template-columns: 1fr var(--size-lg) 1fr;
     color: var(--color-white);
 }
 
 .footerContainer {
     grid-column: 2;
     padding: 2rem 0;
+}
+
+@media (max-width: 992px) {
+    .footer {
+        grid-template-columns: 1fr var(--size-md) 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr var(--size-sm) 1fr;
+    }
 }
