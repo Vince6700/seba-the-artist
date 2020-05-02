@@ -1,0 +1,22 @@
+.containerFluid {
+    height: 70vh;
+    width: 100%;
+    position: relative;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+}
+
+.infos {
+    position: absolute;
+    top: 5rem;
+    left: calc((100vw - 970px)/2);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 3;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    color: var(--color-white);
+}

@@ -1,0 +1,39 @@
+import { graphql, useStaticQuery } from "gatsby"
+
+const useExposQuery = () => {
+  const data = useStaticQuery(graphql`
+    query expos {
+      allSanityExpos {
+        edges {
+          node {
+            id
+            date
+            description
+            name
+            slug {
+              current
+            }
+            sliderImage {
+              _key
+              _type
+              asset {
+                fluid {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  return data.allSanityExpos.edges
+}
+
+export default useExposQuery
