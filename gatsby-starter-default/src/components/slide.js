@@ -5,8 +5,6 @@ import { getDateAndTime } from "../helpers"
 
 import styles from "./slide.module.css"
 
-console.log(styles)
-
 const Slide = ({ img, title, description, date }) => {
   return (
     <div className={styles.containerFluid}>

@@ -25,7 +25,6 @@ const renderSlides = slides =>
 
 const Slider = () => {
   const data = useExposQuery()
-  console.log(data)
 
   return <Slick {...settings}>{renderSlides(data)}</Slick>
 }

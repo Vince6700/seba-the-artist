@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 
 html {
   -ms-text-size-adjust: 100%;
@@ -205,7 +205,7 @@ html {
 body {
   color: hsla(0, 0%, 0%, 0.8);
   font-size: 1.6rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -213,6 +213,12 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 1.4rem;
+  }
 }
 img {
   max-width: 100%;
@@ -620,8 +626,33 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
+
+/** general styles **/
+
+/** carousel **/
+.slick-slider {
+  overflow: hidden;
+}
+
+.slick-arrow {
+  z-index: 3;
+}
+
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  font-size: 3rem;
+}
+
+.slick-arrow.slick-prev {
+  left: 5vw;
+  height: 3rem;
+  width: 3rem;
+  top: 50%
+}
+
+.slick-arrow.slick-next {
+  right: 5vw;
+  height: 3rem;
+  width: 3rem;
+  top: 50%;
 }
