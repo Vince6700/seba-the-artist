@@ -1,6 +1,6 @@
 import React from "react"
 import Slick from "react-slick"
-import useExposQuery from "../hooks/useExposQuery"
+import useExposQuery from "../../hooks/useExposQuery"
 import Slide from "./slide"
 
 const settings = {

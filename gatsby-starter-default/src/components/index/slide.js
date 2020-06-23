@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
-import { getDateAndTime } from "../helpers"
+import { getDateAndTime } from "../../helpers"
 
 import styles from "./slide.module.css"
 
