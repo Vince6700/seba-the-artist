@@ -1,0 +1,35 @@
+.container {
+  position: fixed;
+  top: 5rem;
+  right: calc((100vw - var(--size-lg)) / 2);
+  z-index: 10000;
+  height: 5rem;
+  width: 5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: var(--border-radius-round);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  @media only screen and (max-width: 992px) {
+    right: calc((100vw - var(--size-md)) / 2);
+  }
+
+  @media only screen and (max-width: 768px) {
+    right: calc((100vw - var(--size-sm)) / 2);
+  }
+
+  @media only screen and (max-width: 576px) {
+    right: 2vw;
+    top: 2vw;
+  }
+}
+
+.icon {
+  color: white;
+}
+
+.fontsize {
+  font-size: 3.5rem;
+}
