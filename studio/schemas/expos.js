@@ -1,5 +1,5 @@
 export default {
-    title: 'expos',
+    title: 'Expos',
     name: 'Expos',
     type: 'document',
     fields: [

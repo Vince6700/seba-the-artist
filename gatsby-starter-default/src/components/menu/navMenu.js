@@ -5,6 +5,7 @@ import List from "@material-ui/core/List"
 import MenuItem from "./menuItem"
 import style from "./navMenu.module.scss"
 import { StylesProvider } from "@material-ui/core/styles"
+import useMenuQuery from "../../hooks/useMenuQuery";
 
 const menuItems = {
   home: {
@@ -21,6 +22,9 @@ const menuItems = {
 
 const NavMenu = ({ open, handleMenu }) => {
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
+  const menu = useMenuQuery();
+  console.log(menu);
+
   const renderMenu = () =>
     Object.values(menuItems).map(item => (
       <MenuItem
