@@ -7,23 +7,11 @@ import style from "./navMenu.module.scss"
 import { StylesProvider } from "@material-ui/core/styles"
 import useMenuQuery from "../../hooks/useMenuQuery";
 
-const menuItems = {
-  home: {
-    text: "Accueil",
-    link: "/",
-    background: null,
-  },
-  expos: {
-    text: "Expos",
-    link: "/expos",
-    background: null,
-  },
-}
 
 const NavMenu = ({ open, handleMenu }) => {
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
-  const menu = useMenuQuery();
-  console.log(menu);
+  const menuItems = useMenuQuery();
+  console.log(menuItems);
 
   const renderMenu = () =>
     Object.values(menuItems).map(item => (
