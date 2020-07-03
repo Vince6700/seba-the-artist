@@ -1,0 +1,17 @@
+@import "./src/constant";
+
+.container {
+  border: 1px solid var(--light-grey);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: 20rem;
+}
+
+.infos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

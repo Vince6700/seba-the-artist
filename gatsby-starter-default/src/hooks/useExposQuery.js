@@ -28,6 +28,10 @@ const useExposQuery = () => {
                 }
               }
             }
+            place {
+              lat
+              lng
+            }
           }
         }
       }
