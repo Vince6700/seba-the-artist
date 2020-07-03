@@ -11,7 +11,6 @@ import useMenuQuery from "../../hooks/useMenuQuery";
 const NavMenu = ({ open, handleMenu }) => {
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
   const menuItems = useMenuQuery();
-  console.log(menuItems);
 
   const renderMenu = () =>
     Object.values(menuItems).map(item => (
