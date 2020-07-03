@@ -7,6 +7,12 @@
   display: grid;
   grid-template-columns: 60% 40%;
   height: 20rem;
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 100%;
+    grid-row: auto;
+    position: relative;
+    height: 25rem;
+  }
 }
 
 .infos {
@@ -14,8 +20,49 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 2rem;
+  p {
+    text-align: center;
+  }
+  @media screen and (max-width: 576px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+  }
 }
 
 .map {
   position: relative;
+  @media screen and (max-width: 576px) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.closeMap {
+  display: none;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1rem;
+  background-color: white;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+  @media screen and (max-width: 576px) {
+    display: block;
+  }
+}
+
+.openMap {
+  display: none;
+  font-weight: 700;
+  cursor: pointer;
+  @media screen and (max-width: 576px) {
+    display: block;
+  }
 }

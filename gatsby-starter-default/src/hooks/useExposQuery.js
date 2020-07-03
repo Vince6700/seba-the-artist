@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useExposQuery = () => {
   const data = useStaticQuery(graphql`
     query expos {
-      allSanityExpos {
+      allSanityExpos(sort: { fields: date, order: ASC }) {
         edges {
           node {
             id
