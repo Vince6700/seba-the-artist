@@ -8,9 +8,13 @@ import NavMenu from "./menu/navMenu"
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleMenu = (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
+  const handleMenu = event => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return
     }
     setIsMenuOpen(!isMenuOpen)
   }

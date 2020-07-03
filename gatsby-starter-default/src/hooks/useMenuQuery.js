@@ -1,7 +1,8 @@
-import {graphql, useStaticQuery} from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 const useMenuQuery = () => {
-    const data = useStaticQuery(graphql`query navigation {
+  const data = useStaticQuery(graphql`
+    query navigation {
       allSanityNavigation {
         edges {
           node {
@@ -25,21 +26,23 @@ const useMenuQuery = () => {
           }
         }
       }
-    }`);
+    }
+  `)
 
-    return {
-        home: {
-            text: data.allSanityNavigation.edges[0].node.name,
-            link: "/",
-            background: data.allSanityNavigation.edges[0].node.navigationImage.asset.fluid,
-        },
-        expos: {
-            text: data.allSanityNavigation.edges[1].node.name,
-            link: "/expos",
-            background: data.allSanityNavigation.edges[1].node.navigationImage.asset.fluid,
-        },
-    };
-
+  return {
+    home: {
+      text: data.allSanityNavigation.edges[1].node.name,
+      link: "/",
+      background:
+        data.allSanityNavigation.edges[1].node.navigationImage.asset.fluid,
+    },
+    expos: {
+      text: data.allSanityNavigation.edges[0].node.name,
+      link: "/expos",
+      background:
+        data.allSanityNavigation.edges[0].node.navigationImage.asset.fluid,
+    },
+  }
 }
 
-export default useMenuQuery;
+export default useMenuQuery
