@@ -42,6 +42,12 @@ const useMenuQuery = () => {
       background:
         data.allSanityNavigation.edges[0].node.navigationImage.asset.fluid,
     },
+    figurePainting: {
+      text: data.allSanityNavigation.edges[2].node.name,
+      link: "/figurePainting",
+      background:
+        data.allSanityNavigation.edges[2].node.navigationImage.asset.fluid,
+    },
   }
 }
 
