@@ -21,6 +21,16 @@ const useFigurePaintingQuery = () => {
                   srcSetWebp
                   sizes
                 }
+                fixed {
+                  base64
+                  aspectRatio
+                  width
+                  height
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                }
               }
             }
           }
@@ -28,7 +38,7 @@ const useFigurePaintingQuery = () => {
       }
     }
   `)
-  return data.allSanityFigurePainting.edges;
+  return data.allSanityFigurePainting.edges
 }
 
-export default useFigurePaintingQuery;
+export default useFigurePaintingQuery

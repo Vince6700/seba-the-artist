@@ -1,0 +1,14 @@
+.horizontal {
+  width: 90vw;
+}
+
+.vertical {
+  height: 90vh;
+}
+
+.lightBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
