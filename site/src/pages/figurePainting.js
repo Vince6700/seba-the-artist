@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from "../components/layout/container"
@@ -24,8 +24,15 @@ const renderPaintings = (paintings, handleFullScreen) =>
     </GridListTile>
   ))
 
-const imageModal = (painting, handleClose) => {
-  return <LightBox painting={painting} handleClose={handleClose} />
+const imageModal = (painting, handleClose, handleNext, handlePrevious) => {
+  return (
+    <LightBox
+      painting={painting}
+      handleClose={handleClose}
+      handleNext={handleNext}
+      handlePrevious={handlePrevious}
+    />
+  )
 }
 
 const FigurePainting = () => {
@@ -40,6 +47,22 @@ const FigurePainting = () => {
     setFullScreenIndex(null)
   }
 
+  const handleNext = () => {
+    let newIndex
+    fullScreenIndex === paintings.length - 1
+      ? (newIndex = 0)
+      : (newIndex = fullScreenIndex + 1)
+    setFullScreenIndex(newIndex)
+  }
+
+  const handlePrevious = () => {
+    let newIndex
+    fullScreenIndex === 0
+      ? (newIndex = paintings.length - 1)
+      : (newIndex = fullScreenIndex - 1)
+    setFullScreenIndex(newIndex)
+  }
+
   return (
     <Layout>
       <SEO title="Expos" />
@@ -48,7 +71,12 @@ const FigurePainting = () => {
           {paintings.length > 0 && renderPaintings(paintings, handleFullScreen)}
         </GridList>
         {(fullScreenIndex || fullScreenIndex === 0) &&
-          imageModal(paintings[fullScreenIndex], handleCloseModal)}
+          imageModal(
+            paintings[fullScreenIndex],
+            handleCloseModal,
+            handleNext,
+            handlePrevious
+          )}
       </Container>
     </Layout>
   )

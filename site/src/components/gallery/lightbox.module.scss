@@ -12,3 +12,35 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.closeButton {
+  position: absolute;
+  top: -1.4rem;
+  left: -1.4rem;
+  z-index: 3;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  right: -6rem;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
+}
+
+.previousButton {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  left: -3rem;
+  z-index: 3;
+  color: white;
+  cursor: pointer;
+}
