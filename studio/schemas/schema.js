@@ -6,6 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import expos from './expos'
 import navigation from "./navigation";
 import figurePainting from "./figurePainting"
+import abstractPainting from "./abstractPainting"
+import tailored from "./tailored"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,5 +20,7 @@ export default createSchema({
       expos,
       navigation,
       figurePainting,
+      abstractPainting,
+      tailored
   ])
 })
