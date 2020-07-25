@@ -28,6 +28,7 @@ const LightBox = ({ fixedImg, handleClose, handleNext, handlePrevious, aspectRat
   const handleKeyNav = event => {
     event.key === "ArrowRight" && handleNext()
     event.key === "ArrowLeft" && handlePrevious()
+    event.key === "Escape" && handleClose()
   }
 
   useEffect(() => {
