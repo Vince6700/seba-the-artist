@@ -7,13 +7,8 @@ import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
 import style from "./lightbox.module.scss"
 
-const LightBox = ({ painting, handleClose, handleNext, handlePrevious }) => {
-  const [aspectRatio, setAspectRatio] = useState(0)
+const LightBox = ({ fixedImg, handleClose, handleNext, handlePrevious, aspectRatio }) => {
   const [styleObject, setStyle] = useState({})
-
-  useEffect(() => {
-    !!painting && setAspectRatio(painting.node.painting.asset.fixed.aspectRatio)
-  }, [painting])
 
   useEffect(() => {
     if (aspectRatio >= 1) {
@@ -40,7 +35,7 @@ const LightBox = ({ painting, handleClose, handleNext, handlePrevious }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyNav)
     }
-  }, [handleNext, handlePrevious])
+  }, [fixedImg])
 
   return (
     <Modal open onClose={handleClose} disableAutoFocus disableEnforceFocus>
@@ -58,7 +53,7 @@ const LightBox = ({ painting, handleClose, handleNext, handlePrevious }) => {
           onClick={handlePrevious}
         />
         <Img
-          fixed={painting.node.painting.asset.fixed}
+          fixed={fixedImg}
           imgStyle={{ width: "100%", height: "100%" }}
           style={styleObject}
         />
@@ -68,7 +63,7 @@ const LightBox = ({ painting, handleClose, handleNext, handlePrevious }) => {
 }
 
 LightBox.propTypes = {
-  painting: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
   handleClose: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handlePrevious: PropTypes.func.isRequired,

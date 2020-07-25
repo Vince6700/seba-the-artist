@@ -5,58 +5,39 @@ import Container from "../components/layout/container"
 import useFigurePaintingQuery from "../hooks/useFigurePaintingQuery"
 import LightBox from "../components/gallery/lightBox"
 import Gallery from "../components/gallery/gallery"
+import useLightBox from "../hooks/useLightbox"
 
 const FigurePainting = () => {
   const paintings = useFigurePaintingQuery()
-  const [fullScreenIndex, setFullScreenIndex] = useState(null)
-
-  const handleFullScreen = index => {
-    setFullScreenIndex(index)
-  }
-
-  const handleCloseModal = () => {
-    setFullScreenIndex(null)
-  }
-
-  const handleNext = () => {
-    let newIndex
-    fullScreenIndex === paintings.length - 1
-      ? (newIndex = 0)
-      : (newIndex = fullScreenIndex + 1)
-    setFullScreenIndex(newIndex)
-  }
-
-  const handlePrevious = () => {
-    let newIndex
-    fullScreenIndex === 0
-      ? (newIndex = paintings.length - 1)
-      : (newIndex = fullScreenIndex - 1)
-    setFullScreenIndex(newIndex)
-  }
-
-  const imageModal = (painting, handleClose, handleNext, handlePrevious) => {
-    return (
-      <LightBox
-        painting={painting}
-        handleClose={handleClose}
-        handleNext={handleNext}
-        handlePrevious={handlePrevious}
-      />
-    )
-  }
+  const {
+    fullScreenIndex,
+    handleFullScreen,
+    handleCloseModal,
+    handleNext,
+    handlePrevious,
+  } = useLightBox(paintings)
 
   return (
     <Layout>
       <SEO title="Expos" />
       <Container>
-        <Gallery handleFullScreen={handleFullScreen} images={paintings} />
-        {(fullScreenIndex || fullScreenIndex === 0) &&
-          imageModal(
-            paintings[fullScreenIndex],
-            handleCloseModal,
-            handleNext,
-            handlePrevious
-          )}
+        <Gallery
+          handleFullScreen={handleFullScreen}
+          images={paintings}
+          assetName="painting"
+        />
+        {(fullScreenIndex || fullScreenIndex === 0) && (
+          <LightBox
+            image={paintings[fullScreenIndex]}
+            handleClose={handleCloseModal}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            aspectRatio={
+              paintings[fullScreenIndex].node.painting.asset.fixed.aspectRatio
+            }
+            fixedImg={paintings[fullScreenIndex].node.painting.asset.fixed}
+          />
+        )}
       </Container>
     </Layout>
   )
