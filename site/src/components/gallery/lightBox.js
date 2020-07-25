@@ -33,7 +33,7 @@ const LightBox = ({ fixedImg, handleClose, handleNext, handlePrevious, aspectRat
   useEffect(() => {
     document.addEventListener("keydown", handleKeyNav)
     return () => {
-      window.removeEventListener("keydown", handleKeyNav)
+      document.removeEventListener("keydown", handleKeyNav)
     }
   }, [fixedImg])
 
