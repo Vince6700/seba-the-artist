@@ -19,6 +19,18 @@
   border-radius: var(--border-radius);
   padding: 2rem;
   color: var(--color-white);
+  cursor: pointer;
+}
+
+.knowMore {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .infos {
+    max-width: 30%;
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -27,13 +39,13 @@
   }
 }
 
-@media  only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .infos {
     left: calc((100vw - var(--size-sm)) / 2);
   }
 }
 
-@media  only screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
   .infos {
     left: 2vw;
     bottom: 2vw;
@@ -41,5 +53,3 @@
     top: inherit;
   }
 }
-
-

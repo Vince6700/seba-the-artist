@@ -7,21 +7,39 @@ import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded"
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
 import style from "./lightbox.module.scss"
 
-const LightBox = ({ fixedImg, handleClose, handleNext, handlePrevious, aspectRatio }) => {
+const LightBox = ({
+  fixedImg,
+  handleClose,
+  handleNext,
+  handlePrevious,
+  aspectRatio,
+}) => {
   const [styleObject, setStyle] = useState({})
 
   useEffect(() => {
+    const windowHeight = window.innerHeight
+    const windowWidth = window.innerWidth
     if (aspectRatio >= 1) {
-      const windowWidth = window.innerWidth
+      const maxHeight = windowHeight * 0.9
       const width = windowWidth * 0.9
       const height = width / aspectRatio
-      setStyle({ width: `${width}px`, height: `${height}px` })
+      height > maxHeight
+        ? setStyle({
+            width: `${width / (height / maxHeight)}px`,
+            height: `${height / (height / maxHeight)}px`,
+          })
+        : setStyle({ width: `${width}px`, height: `${height}px` })
     }
     if (aspectRatio < 1) {
-      const windowHeight = window.innerHeight
-      const height = windowHeight * 0.9
+      const maxWidth = windowWidth * 0.8
+      const height = windowHeight * 0.8
       const width = height * aspectRatio
-      setStyle({ width: `${width}px`, height: `${height}px` })
+      width > maxWidth
+        ? setStyle({
+            width: `${width / (width / maxWidth)}px`,
+            height: `${height / (width / maxWidth)}px`,
+          })
+        : setStyle({ width: `${width}px`, height: `${height}px` })
     }
   }, [aspectRatio])
 
