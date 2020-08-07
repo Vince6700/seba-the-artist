@@ -23,6 +23,7 @@ const useMenuQuery = () => {
               }
             }
             name
+            description
           }
         }
       }
@@ -35,30 +36,35 @@ const useMenuQuery = () => {
       link: "/",
       background:
         data.allSanityNavigation.edges[1].node.navigationImage.asset.fluid,
+      description: data.allSanityNavigation.edges[1].node.description,
     },
     expos: {
       text: data.allSanityNavigation.edges[0].node.name,
       link: "/expos",
       background:
         data.allSanityNavigation.edges[0].node.navigationImage.asset.fluid,
+      description: data.allSanityNavigation.edges[0].node.description,
     },
     figurePainting: {
       text: data.allSanityNavigation.edges[2].node.name,
       link: "/figurePainting",
       background:
         data.allSanityNavigation.edges[2].node.navigationImage.asset.fluid,
+      description: data.allSanityNavigation.edges[2].node.description,
     },
     abstractPainting: {
       text: data.allSanityNavigation.edges[3].node.name,
       link: "/abstractPainting",
       background:
         data.allSanityNavigation.edges[3].node.navigationImage.asset.fluid,
+      description: data.allSanityNavigation.edges[3].node.description,
     },
     tailoredPainting: {
       text: data.allSanityNavigation.edges[4].node.name,
       link: "/tailoredPainting",
       background:
         data.allSanityNavigation.edges[4].node.navigationImage.asset.fluid,
+      description: data.allSanityNavigation.edges[4].node.description,
     },
   }
 }

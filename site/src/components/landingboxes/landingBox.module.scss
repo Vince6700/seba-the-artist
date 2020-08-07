@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+
+.box {
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--bezier--transition);
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+}

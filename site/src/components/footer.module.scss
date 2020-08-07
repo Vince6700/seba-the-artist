@@ -11,6 +11,21 @@
 .footerContainer {
     grid-column: 2;
     padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.linkContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: darken(white, 10%);
+        }
+    }
 }
 
 @media (max-width: 992px) {

@@ -15,5 +15,11 @@ export default {
             type: 'image',
             validation: Rule => Rule.required()
         },
+        {
+            title: 'description',
+            name: 'description',
+            type: 'text',
+            max: 500
+        },
     ],
 }

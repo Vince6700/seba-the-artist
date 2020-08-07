@@ -8,6 +8,7 @@ import navigation from "./navigation";
 import figurePainting from "./figurePainting"
 import abstractPainting from "./abstractPainting"
 import tailored from "./tailored"
+import generalInfos from "./generalInfos"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -21,6 +22,7 @@ export default createSchema({
       navigation,
       figurePainting,
       abstractPainting,
-      tailored
+      tailored,
+      generalInfos
   ])
 })
