@@ -27,5 +27,33 @@ export default {
       type: 'image',
       validation: Rule => Rule.required()
     },
+    {
+      title: 'Rangée',
+      name: 'row',
+      type: 'number',
+      validation: Rule => Rule.required()
+    },
+    {
+      title: 'Colonne',
+      name: 'column',
+      type: 'number',
+      validation: Rule => Rule.required()
+    },
+  ],
+  orderings: [
+    {
+      title: 'date order',
+      name: 'dateOrder',
+      by: [
+        {field: 'date', direction: 'desc'}
+      ]
+    },
+    {
+      title: 'rangée',
+      name: 'rowOrder',
+      by: [
+        {field: 'row', direction: 'asc'}
+      ]
+    }
   ],
 }
