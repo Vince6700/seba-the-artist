@@ -24,7 +24,7 @@ const renderImages = (images, handleFullScreen, assetName) =>
 
 const Gallery = ({ images, handleFullScreen, assetName }) => {
   const [height, setHeight] = useState(380)
-  const [windowWidth, setWindowWidth] = useState()
+  const [windowWidth, setWindowWidth] = useState(null)
 
   useEffect(() => {
     setWindowWidth(window.innerWidth)
