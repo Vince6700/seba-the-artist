@@ -24,7 +24,11 @@ const renderImages = (images, handleFullScreen, assetName) =>
 
 const Gallery = ({ images, handleFullScreen, assetName }) => {
   const [height, setHeight] = useState(380)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState()
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth)
+  }, [])
 
   useEffect(() => {
     const updateSize = () => {
@@ -32,12 +36,12 @@ const Gallery = ({ images, handleFullScreen, assetName }) => {
     }
     window.addEventListener("resize", updateSize)
     return () => window.removeEventListener("resize", updateSize)
-  })
+  }, [])
 
   useEffect(() => {
-    windowWidth > 992 && setHeight(380);
-    windowWidth < 992 && setHeight(300);
-    windowWidth < 768 && setHeight(220);
+    windowWidth > 992 && setHeight(380)
+    windowWidth < 992 && setHeight(300)
+    windowWidth < 768 && setHeight(220)
     windowWidth < 576 && setHeight(140)
   }, [windowWidth])
 
