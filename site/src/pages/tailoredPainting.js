@@ -10,6 +10,7 @@ import useTailoredPaintingQuery from "../hooks/useTailoredPaintingQuery"
 
 const TailoredPainting = () => {
   const paintings = useTailoredPaintingQuery()
+  console.log(paintings)
   const {
     fullScreenIndex,
     handleFullScreen,

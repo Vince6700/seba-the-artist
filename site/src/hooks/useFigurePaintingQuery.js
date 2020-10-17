@@ -3,13 +3,15 @@ import { graphql, useStaticQuery } from "gatsby"
 const useFigurePaintingQuery = () => {
   const data = useStaticQuery(graphql`
     query figurePaintingQuery {
-      allSanityFigurePainting {
+      allSanityFigurePainting(sort: { order: ASC, fields: row }) {
         edges {
           node {
             date
             description
             id
             name
+            column
+            row
             painting {
               asset {
                 fluid {
