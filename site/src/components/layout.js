@@ -6,6 +6,8 @@ import NavButton from "./menu/navButton"
 import NavMenu from "./menu/navMenu"
 import ContactButton from "./contact/contactButton"
 import ContactForm from "./contact/contactForm"
+import { ThemeProvider } from "@material-ui/core/styles"
+import { theme } from "../theme/theme"
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,14 +29,14 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <NavButton handleMenu={handleMenu} />
       <NavMenu open={isMenuOpen} handleMenu={handleMenu} />
       <main>{children}</main>
       <ContactButton handleForm={handleContact} />
       <ContactForm isOpen={isContactOpen} onClose={handleContact} />
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
 

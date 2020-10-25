@@ -30,7 +30,6 @@ const useMenuQuery = () => {
     }
   `)
 
-  console.log(data)
   return {
     home: {
       text: data.allSanityNavigation.edges[0].node.name,
