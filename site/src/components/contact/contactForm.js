@@ -71,11 +71,12 @@ const ContactForm = ({ isOpen, onClose }) => {
             />
             <div className={style.buttonsContainer}>
               <Button
-                onClick={() => {}}
+                onClick={handleSubmit}
                 variant="contained"
                 color="primary"
                 classes={{ root: style.button }}
                 endIcon={<SendIcon />}
+                type="submit"
               >
                 Envoyer
               </Button>
