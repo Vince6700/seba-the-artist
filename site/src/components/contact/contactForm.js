@@ -14,7 +14,13 @@ import CancelIcon from "@material-ui/icons/Cancel"
 import useContactForm from "../../hooks/useContactForm"
 
 const ContactForm = ({ isOpen, onClose }) => {
-  const { handleSubmit, handleForm } = useContactForm()
+  const {
+    handleSubmit,
+    handleForm,
+    form,
+    isSubmitting,
+    errors,
+  } = useContactForm()
 
   return (
     <StylesProvider injectFirst>
@@ -42,6 +48,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               InputLabelProps={{ classes: { root: style.text } }}
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
+              value={form.email}
+              error={errors.email}
             />
             <TextField
               margin="dense"
@@ -54,6 +62,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               InputLabelProps={{ classes: { root: style.text } }}
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
+              value={form.subject}
+              error={errors.subject}
             />
             <TextField
               margin="dense"
@@ -68,6 +78,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               InputLabelProps={{ classes: { root: style.text } }}
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
+              value={form.message}
+              errors={errors.message}
             />
             <div className={style.buttonsContainer}>
               <Button
@@ -84,6 +96,7 @@ const ContactForm = ({ isOpen, onClose }) => {
                 onClick={onClose}
                 classes={{ root: style.cancelButton }}
                 endIcon={<CancelIcon fontSize="small" />}
+                disabled={isSubmitting}
               >
                 annuler
               </Button>
