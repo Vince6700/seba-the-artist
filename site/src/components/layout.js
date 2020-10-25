@@ -4,9 +4,12 @@ import "./layout.scss"
 import Footer from "./footer"
 import NavButton from "./menu/navButton"
 import NavMenu from "./menu/navMenu"
+import ContactButton from "./contact/contactButton"
+import ContactForm from "./contact/contactForm"
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   const handleMenu = event => {
     if (
@@ -18,11 +21,18 @@ const Layout = ({ children }) => {
     }
     setIsMenuOpen(!isMenuOpen)
   }
+
+  const handleContact = () => {
+    setIsContactOpen(!isContactOpen)
+  }
+
   return (
     <>
       <NavButton handleMenu={handleMenu} />
       <NavMenu open={isMenuOpen} handleMenu={handleMenu} />
       <main>{children}</main>
+      <ContactButton handleForm={handleContact} />
+      <ContactForm isOpen={isContactOpen} onClose={handleContact} />
       <Footer />
     </>
   )
