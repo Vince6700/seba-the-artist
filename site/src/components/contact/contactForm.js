@@ -31,10 +31,11 @@ const ContactForm = ({ isOpen, onClose }) => {
         <DialogContent>
           <form
             onSubmit={handleSubmit}
-            data-netlify="true"
+            netlify
             data-netlify-honeypot="bot-field"
+            name="contact"
           >
-            <input type="hidden" name="form-name" value="contactForm" />
+            <input type="hidden" name="form-name" value="contact" />
             <TextField
               autoFocus
               margin="dense"
@@ -67,7 +68,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             />
             <TextField
               margin="dense"
-              id="subject"
+              id="message"
               label="Message"
               type="text"
               fullWidth
@@ -83,7 +84,6 @@ const ContactForm = ({ isOpen, onClose }) => {
             />
             <div className={style.buttonsContainer}>
               <Button
-                onClick={handleSubmit}
                 variant="contained"
                 color="primary"
                 classes={{ root: style.button }}
