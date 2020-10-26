@@ -6,6 +6,7 @@ const useContactForm = () => {
     email: "",
     subject: "",
     message: "",
+    "form-name": "contact",
   })
   const [errors, setErrors] = useState({ email: "", subject: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -17,6 +18,7 @@ const useContactForm = () => {
   }
 
   const handleSubmit = e => {
+    e.preventDefault()
     setIsSubmitting(true)
     fetch("/", {
       method: "POST",
@@ -26,8 +28,6 @@ const useContactForm = () => {
       .then(() => alert("Success!"))
       .catch(error => alert(error))
       .finally(() => setIsSubmitting(false))
-
-    e.preventDefault()
   }
 
   return { handleSubmit, handleForm, form, errors, isSubmitting }
