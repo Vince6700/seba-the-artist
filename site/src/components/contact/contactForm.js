@@ -53,6 +53,7 @@ const ContactForm = ({ isOpen, onClose }) => {
               onChange={handleForm}
               value={form.email}
               error={errors.email}
+              name="email"
             />
             <TextField
               margin="dense"
@@ -67,6 +68,7 @@ const ContactForm = ({ isOpen, onClose }) => {
               onChange={handleForm}
               value={form.subject}
               error={errors.subject}
+              name="subject"
             />
             <TextField
               margin="dense"
@@ -83,6 +85,7 @@ const ContactForm = ({ isOpen, onClose }) => {
               onChange={handleForm}
               value={form.message}
               errors={errors.message}
+              name="message"
             />
             <div className={style.buttonsContainer}>
               <Button

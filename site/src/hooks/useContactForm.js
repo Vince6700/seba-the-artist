@@ -6,7 +6,6 @@ const useContactForm = () => {
     email: "",
     subject: "",
     message: "",
-    "form-name": "contact",
   })
   const [errors, setErrors] = useState({ email: "", subject: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -14,7 +13,7 @@ const useContactForm = () => {
   console.log(form, errors)
 
   const handleForm = e => {
-    setForm({ ...form, [e.target.id]: e.target.value })
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = e => {
