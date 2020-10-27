@@ -38,6 +38,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="text" name="email" value={form.email} />
             <TextField
               autoFocus
               margin="dense"
