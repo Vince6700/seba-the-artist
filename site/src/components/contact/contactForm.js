@@ -29,7 +29,13 @@ const ContactForm = ({ isOpen, onClose }) => {
           Contactez-moi
         </DialogTitle>
         <DialogContent>
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            name="contact"
+            method="POST"
+            netlify
+          >
             <input type="hidden" name="form-name" value="contact" />
             <TextField
               autoFocus
