@@ -30,13 +30,12 @@ const ContactForm = ({ isOpen, onClose }) => {
         </DialogTitle>
         <DialogContent>
           <form
-            onSubmit={handleSubmit}
-            data-netlify="true"
             name="contact"
-            method="POST"
-            netlify
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
           >
-            <input type="hidden" name="form-name" value="contact" />
             <TextField
               autoFocus
               margin="dense"
