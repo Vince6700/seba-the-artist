@@ -18,12 +18,12 @@ const useContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    const form = e.target
+    const htmlForm = e.target
     setIsSubmitting(true)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": form.getAttribute("name"), ...form }),
+      body: encode({ "form-name": htmlForm.getAttribute("name"), ...form }),
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error))
