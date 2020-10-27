@@ -36,6 +36,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <TextField
               autoFocus
               margin="dense"
