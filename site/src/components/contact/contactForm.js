@@ -20,6 +20,7 @@ const ContactForm = ({ isOpen, onClose }) => {
     form,
     isSubmitting,
     errors,
+    contactForm,
   } = useContactForm()
 
   return (
@@ -35,6 +36,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
+            ref={contactForm}
           >
             <input type="hidden" name="form-name" value="contact" />
             <TextField

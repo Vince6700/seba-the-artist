@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, createRef } from "react"
 import { encode } from "../helpers"
 
 const useContactForm = () => {
@@ -9,6 +9,7 @@ const useContactForm = () => {
   })
   const [errors, setErrors] = useState({ email: "", subject: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const contactForm = createRef()
 
   console.log(form, errors)
 
@@ -18,7 +19,7 @@ const useContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    const htmlForm = e.target
+    const htmlForm = contactForm.current
     setIsSubmitting(true)
     fetch("/", {
       method: "POST",
@@ -30,7 +31,7 @@ const useContactForm = () => {
       .finally(() => setIsSubmitting(false))
   }
 
-  return { handleSubmit, handleForm, form, errors, isSubmitting }
+  return { handleSubmit, handleForm, form, errors, isSubmitting, contactForm }
 }
 
 export default useContactForm
