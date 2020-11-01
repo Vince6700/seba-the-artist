@@ -11,8 +11,6 @@ const useContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const contactForm = createRef()
 
-  console.log(form, errors)
-
   const handleForm = e => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }

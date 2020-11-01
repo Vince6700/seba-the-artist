@@ -38,6 +38,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             onSubmit={handleSubmit}
             ref={contactForm}
           >
+            <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <TextField
               autoFocus
