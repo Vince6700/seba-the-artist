@@ -8,11 +8,23 @@ import ContactButton from "./contact/contactButton"
 import ContactForm from "./contact/contactForm"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { theme } from "../theme/theme"
-import { DialogContent } from "@material-ui/core"
+import useContactForm from "../hooks/useContactForm"
+import MailNotification from "./contact/mailNotification"
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isContactOpen, setIsContactOpen] = useState(false)
+  const {
+    handleSubmit,
+    handleForm,
+    form,
+    isSubmitting,
+    errors,
+    contactForm,
+    isSnackBarOpen,
+    handleSnackBar,
+    isContactOpen,
+    setIsContactOpen,
+  } = useContactForm()
 
   const handleMenu = event => {
     if (
@@ -35,8 +47,18 @@ const Layout = ({ children }) => {
       <NavMenu open={isMenuOpen} handleMenu={handleMenu} />
       <main>{children}</main>
       <ContactButton handleForm={handleContact} />
-      <ContactForm isOpen={isContactOpen} onClose={handleContact} />
+      <ContactForm
+        isOpen={isContactOpen}
+        onClose={handleContact}
+        handleSubmit={handleSubmit}
+        handleForm={handleForm}
+        form={form}
+        isSubmitting={isSubmitting}
+        errors={errors}
+        contactForm={contactForm}
+      />
       <Footer />
+      <MailNotification handleSnackBar={handleSnackBar} isSnackbarOpen={isSnackBarOpen} />
       <form
         name="contact"
         method="post"

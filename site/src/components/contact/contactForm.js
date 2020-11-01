@@ -13,16 +13,16 @@ import SendIcon from "@material-ui/icons/Send"
 import CancelIcon from "@material-ui/icons/Cancel"
 import useContactForm from "../../hooks/useContactForm"
 
-const ContactForm = ({ isOpen, onClose }) => {
-  const {
-    handleSubmit,
-    handleForm,
-    form,
-    isSubmitting,
-    errors,
-    contactForm,
-  } = useContactForm()
-
+const ContactForm = ({
+  isOpen,
+  onClose,
+  handleSubmit,
+  handleForm,
+  form,
+  isSubmitting,
+  errors,
+  contactForm,
+}) => {
   return (
     <StylesProvider injectFirst>
       <Dialog open={isOpen} onClose={onClose}>
@@ -54,8 +54,9 @@ const ContactForm = ({ isOpen, onClose }) => {
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
               value={form.email}
-              error={errors.email}
+              error={!!errors.email}
               name="email"
+              helperText={errors.email}
             />
             <TextField
               margin="dense"
@@ -69,7 +70,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
               value={form.subject}
-              error={errors.subject}
+              error={!!errors.subject}
+              helperText={errors.subject}
               name="subject"
             />
             <TextField
@@ -86,7 +88,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               classes={{ root: style.marginBottom }}
               onChange={handleForm}
               value={form.message}
-              errors={errors.message}
+              error={!!errors.message}
+              helperText={errors.message}
               name="message"
             />
             <div className={style.buttonsContainer}>
@@ -117,6 +120,13 @@ const ContactForm = ({ isOpen, onClose }) => {
 
 ContactForm.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleForm: PropTypes.func.isRequired,
+  form: PropTypes.any,
+  isSubmitting: PropTypes.bool.isRequired,
+  errors: PropTypes.any,
+  contactForm: PropTypes.any,
 }
 
 export default ContactForm
