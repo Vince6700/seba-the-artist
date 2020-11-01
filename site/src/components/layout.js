@@ -8,6 +8,7 @@ import ContactButton from "./contact/contactButton"
 import ContactForm from "./contact/contactForm"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { theme } from "../theme/theme"
+import { DialogContent } from "@material-ui/core"
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -36,6 +37,19 @@ const Layout = ({ children }) => {
       <ContactButton handleForm={handleContact} />
       <ContactForm isOpen={isContactOpen} onClose={handleContact} />
       <Footer />
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="email" />
+        <input type="hidden" name="subject" />
+        <input type="hidden" name="message" />
+      </form>
     </ThemeProvider>
   )
 }
